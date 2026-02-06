@@ -45,6 +45,7 @@ import com.drew.imaging.ImageMetadataReader;
 import com.drew.imaging.ImageProcessingException;
 import com.drew.metadata.Directory;
 import com.drew.metadata.Metadata;
+//import com.drew.metadata.Metadata;
 import com.drew.metadata.Tag;
 import com.example.pictgram.entity.Comment;
 import com.example.pictgram.entity.Favorite;
@@ -122,6 +123,9 @@ public class TopicsController {
 
 				data.append(new String(Base64Utils.encode(os.toByteArray()), "ASCII"));
 				form.setImageData(data.toString());
+			} catch (FileNotFoundException e) {
+				System.out.println(e.getMessage());
+				System.out.println(entity.getPath());
 			}
 		}
 

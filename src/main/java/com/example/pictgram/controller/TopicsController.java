@@ -313,4 +313,8 @@ public class TopicsController {
 		}
 	}
 
+	@GetMapping("/admin")
+	public String admin(Model model) {
+		return "pages/admin";
+	}
 }

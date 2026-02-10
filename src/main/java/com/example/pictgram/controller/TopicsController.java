@@ -22,10 +22,10 @@ import org.apache.sanselan.Sanselan;
 import org.apache.sanselan.common.IImageMetadata;
 import org.apache.sanselan.formats.jpeg.JpegImageMetadata;
 import org.apache.sanselan.formats.tiff.TiffImageMetadata.GPSInfo;
-import org.modelmapper.ModelMapper;<<<<<<<HEAD
-import org.modelmapper.TypeToken;=======
+import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;>>>>>>>topic/10
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
@@ -45,14 +45,12 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.thymeleaf.context.Context;
 
-<<<<<<<HEAD
-import com.example.pictgram.bean.TopicCsv;=======
 import com.drew.imaging.ImageMetadataReader;
 import com.drew.imaging.ImageProcessingException;
 import com.drew.metadata.Directory;
 import com.drew.metadata.Metadata;
-//import com.drew.metadata.Metadata;
-import com.drew.metadata.Tag;>>>>>>>topic/10
+import com.drew.metadata.Tag;
+import com.example.pictgram.bean.TopicCsv;
 import com.example.pictgram.entity.Comment;
 import com.example.pictgram.entity.Favorite;
 import com.example.pictgram.entity.Topic;
@@ -247,7 +245,8 @@ public class TopicsController {
 		return destFile;
 	}
 
-	<<<<<<<HEAD @GetMapping(value="/topics/topic.csv",produces=MediaType.APPLICATION_OCTET_STREAM_VALUE+"; charset=UTF-8; Content-Disposition: attachment")
+	@GetMapping(value = "/topics/topic.csv", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE
+			+ "; charset=UTF-8; Content-Disposition: attachment")
 
 	@ResponseBody
 	public Object downloadCsv() throws IOException {
@@ -259,7 +258,7 @@ public class TopicsController {
 		CsvSchema schema = mapper.schemaFor(TopicCsv.class).withHeader();
 
 		return mapper.writer(schema).writeValueAsString(csv);
-	}=======
+	}
 
 	private void setGeoInfo(Topic entity, BufferedInputStream inputStream, String fileName)
 			throws ImageProcessingException, IOException, ImageReadException {
@@ -314,5 +313,4 @@ public class TopicsController {
 		}
 	}
 
-	>>>>>>>topic/10
 }
